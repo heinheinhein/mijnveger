@@ -8,18 +8,34 @@
   --flag-content: "🚩";
 }
 
+
 body {
-  margin: 8px;
+  margin: 0;
+  width: 100dvw;
+  height: 100dvh;
   background-color: var(--background-color);
   font-family: monospace;
-}
-
-
-table {
-  font-family: monospace;
   font-size: 14px;
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
+header {
+  margin: 8px 8px 0 8px;
+}
+
+main {
+  flex-grow: 1;
+  margin: 8px
+}
+
+footer {
+  margin: 0 8px 8px 8px;
+}
+
+table {}
 
 table,
 td,
@@ -39,7 +55,7 @@ tbody td {
   color: var(--background-color);
   background: var(--tile-color);
   font-weight: bold;
-  position: relative;  
+  position: relative;
   font-size: 2.2em;
 }
 
@@ -96,7 +112,7 @@ tbody td.two::after {
 }
 
 /* 3 */
-tbody td.three{
+tbody td.three {
   --tile-color: #EDDAB4;
 }
 
