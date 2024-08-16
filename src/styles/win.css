@@ -1,0 +1,47 @@
+.rainbow {
+    animation: rainbow 7s steps(7, jump-both) infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        --table-color: #F777F7;
+    }
+
+    17% {
+        --table-color: #289DF6;
+    }
+
+    33% {
+        --table-color: #F8BA10;
+    }
+
+    50% {
+        --table-color: #5CF958;
+    }
+
+    67% {
+        --table-color: #FB566A;
+    }
+
+    83% {
+        --table-color: #07F3FB;
+    }
+
+    100% {
+        --table-color: #F4F566;
+    }
+}
+
+.fall {
+    animation: fall 0.3s ease-in forwards;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform : translateY(100vh);
+    }
+}

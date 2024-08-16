@@ -1,0 +1,150 @@
+:root {
+  --background-color: #000000;
+  --table-color: #FFFFFF;
+  --tile-color: #CCCCCC;
+  --discovered-color: #272727;
+  --wrong-color: #CC0000;
+  --mine-content: "💣";
+  --flag-content: "🚩";
+}
+
+body {
+  margin: 8px;
+  background-color: var(--background-color);
+  font-family: monospace;
+}
+
+
+table {
+  font-family: monospace;
+  font-size: 14px;
+  width: auto;
+}
+
+table,
+td,
+th {
+  border: 1px var(--table-color) solid;
+  background-color: (var(--background-color));
+}
+
+thead th {
+  color: var(--table-color);
+  background-color: var(--background-color);
+}
+
+tbody td {
+  height: 1.4em;
+  width: 1.4em;
+  color: var(--background-color);
+  background: var(--tile-color);
+  font-weight: bold;
+  position: relative;  
+  font-size: 2.2em;
+}
+
+tbody td::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+tbody td:hover {
+  filter: brightness(1.15);
+}
+
+table.unplayable tbody td:hover {
+  filter: unset;
+}
+
+tbody td.discovered {
+  --tile-color: var(--discovered-color);
+}
+
+tbody td.mine::after {
+  content: var(--mine-content);
+}
+
+tbody td.flag::after {
+  content: var(--flag-content);
+}
+
+tbody td.wrong {
+  background-color: var(--wrong-color);
+}
+
+
+/* 1 */
+tbody td.one {
+  --tile-color: #DDFAC3;
+}
+
+tbody td.one::after {
+  content: "1";
+}
+
+/* 2 */
+tbody td.two {
+  --tile-color: #ECEDBF;
+}
+
+tbody td.two::after {
+  content: "2";
+}
+
+/* 3 */
+tbody td.three{
+  --tile-color: #EDDAB4;
+}
+
+tbody td.three::after {
+  content: "3";
+}
+
+/* 4 */
+tbody td.four {
+  --tile-color: #EDC38A;
+}
+
+tbody td.four::after {
+  content: "4";
+}
+
+/* 5 */
+tbody td.five {
+  --tile-color: #F7A1A2;
+}
+
+tbody td.five::after {
+  content: "5";
+}
+
+/* 6 */
+tbody td.six {
+  --tile-color: #FEA785;
+}
+
+tbody td.six::after {
+  content: "6";
+}
+
+/* 7 */
+tbody td.seven {
+  --tile-color: #FF7D60;
+}
+
+tbody td.seven::after {
+  content: "7";
+}
+
+/* 8 */
+tbody td.eight {
+  --tile-color: #FF323C;
+}
+
+tbody td.eight::after {
+  content: "8";
+}
