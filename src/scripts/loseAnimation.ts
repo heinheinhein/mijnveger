@@ -6,6 +6,7 @@ import helicopterGif from "../media/funny/helicopter.gif";
 import clownGif from "../media/funny/clown.gif";
 import nukeMp3 from "../media/funny/nuke.mp3";
 import explosieGif from "../media/funny/explosie.gif";
+import bombSvg from "../media/bomb.svg";
 
 
 export async function loseAnimation(event: CustomEvent | Event): Promise<void> {
@@ -94,13 +95,13 @@ async function sleep(ms: number): Promise<void> {
 
 function showMines(): void {
     document.documentElement.style.setProperty('--wrong-color', "#CC0000");
-    document.documentElement.style.setProperty("--mine-content", "'💣'");
+    document.documentElement.style.setProperty("--mine-image", `url("${bombSvg}")`);
 }
 
 
 export function hideMines(): void {
     document.documentElement.style.setProperty("--wrong-color", "var(--tile-color)");
-    document.documentElement.style.setProperty("--mine-content", "''");
+    document.documentElement.style.setProperty("--mine-image", "''");
 }
 
 

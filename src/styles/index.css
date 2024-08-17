@@ -4,8 +4,8 @@
   --tile-color: #CCCCCC;
   --discovered-color: #272727;
   --wrong-color: #CC0000;
-  --mine-content: "💣";
-  --flag-content: "🚩";
+  --mine-image: url("/src/media/bomb.svg");
+  --flag-image: url("/src/media/flag.svg");
 }
 
 
@@ -57,6 +57,9 @@ tbody td {
   font-weight: bold;
   position: relative;
   font-size: 2.2em;
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 tbody td::after {
@@ -66,7 +69,6 @@ tbody td::after {
   justify-content: center;
   align-items: center;
 }
-
 
 tbody td:hover {
   filter: brightness(1.15);
@@ -80,12 +82,12 @@ tbody td.discovered {
   --tile-color: var(--discovered-color);
 }
 
-tbody td.mine::after {
-  content: var(--mine-content);
+tbody td.mine {
+  background-image: var(--mine-image);
 }
 
-tbody td.flag::after {
-  content: var(--flag-content);
+tbody td.flag {
+  background-image: var(--flag-image);
 }
 
 tbody td.wrong {
