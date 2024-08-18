@@ -111,7 +111,7 @@ async function vuurwerk(mines: HTMLTableCellElement[]): Promise<void> {
     const vuurwerkjes = [vuurwerkBlauwGif, vuurwerkGeelGif, vuurwerkGroenGif];
 
     mines.forEach(async (mine) => {
-        // maak een image aan met explosie gif
+        // maak een image aan met vuurwerk gif
         const vuurwerkImage = document.createElement("img");
         vuurwerkImage.src = vuurwerkjes[Math.floor(Math.random() * vuurwerkjes.length)];
         vuurwerkImage.alt = "vuurwerk";
@@ -120,8 +120,8 @@ async function vuurwerk(mines: HTMLTableCellElement[]): Promise<void> {
 
         // bepaal de x en y van de mine
         const minePosition = mine.getBoundingClientRect();
-        const mineMiddleX = minePosition.x + minePosition.width / 2;
-        const mineMiddleY = minePosition.y + minePosition.height / 2;
+        const mineMiddleX = minePosition.x + minePosition.width / 2 + window.scrollX;
+        const mineMiddleY = minePosition.y + minePosition.height / 2 + window.scrollY;
 
         // bepaal de x en y voor de gif
         const x = mineMiddleX - vuurwerkImage.width / 2;

@@ -64,8 +64,8 @@ async function helicopter(mines: HTMLTableCellElement[]): Promise<void> {
 
         // bepaal de x en y van de mine
         const minePosition = mine.getBoundingClientRect();
-        const mineMiddleX = minePosition.x + minePosition.width / 2;
-        const mineMiddleY = minePosition.y + minePosition.height / 2;
+        const mineMiddleX = minePosition.x + minePosition.width / 2 + window.scrollX;
+        const mineMiddleY = minePosition.y + minePosition.height / 2 + window.scrollY;;
 
         // bepaal de x en y voor de gif
         const x = mineMiddleX - explosieImage.width / 2;

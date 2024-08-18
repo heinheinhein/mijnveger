@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,12 +12,15 @@
   <meta name="color-scheme" content="dark">
 
   <link rel="stylesheet" href="/src/styles/index.css">
-  <link rel="stylesheet" href="/src/styles/win.css">
+  <link rel="stylesheet" href="/src/styles/animations.css">
+  <script type="module" src="/src/scripts/index.ts"></script>
 </head>
 
 <body>
   <header>
-    mijnveger
+    <a href="javascript:window.location.reload()">
+      <img src="/src/media/mijn-veger.gif" alt="Mijn-Veger" width="800" height="120">
+    </a>
   </header>
 
   <main>
@@ -25,10 +28,20 @@
   </main>
 
   <footer>
-    footer
-    <button id="reset">reset</button>
+    <div>
+      <button id="opnieuw">opnieuw</button>
+    </div>
+    <div>
+      <button id="makkelijk">makkelijk</button>
+      <button id="gemiddeld">gemiddeld</button>
+      <button id="moeilijk">moeilijk</button>
+    </div>
+    <div>
+      <label for="breedte">breedte:</label> <input type="number" name="breedte" id="breedte" size="3">
+      <label for="hoogte">hoogte:</label> <input type="number" name="hoogte" id="hoogte" size="3">
+      <label for="mijnen">mijnen:</label> <input type="number" name="mijnen" id="mijnen" size="3">
+    </div>
   </footer>
-  <script type="module" src="/src/scripts/index.ts"></script>
 </body>
 
 </html>
