@@ -14,6 +14,10 @@ export async function jumpscare(_event?: Event): Promise<void> {
         whatsappMp3, usbMp3, rct2Mp3
     ];
 
-    const audio = new Audio(jumpscares[Math.floor(Math.random() * jumpscares.length)]);
+    const chosenOne = jumpscares[Math.floor(Math.random() * jumpscares.length)];
+
+    console.log(`jumpscare!! ${chosenOne}`);
+
+    const audio = new Audio(chosenOne);
     await audio.play();
 }

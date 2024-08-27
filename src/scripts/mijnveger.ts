@@ -139,6 +139,8 @@ export class Mijnveger extends EventTarget {
      * @param index The index that is clicked on.
      */
     public leftClick = (index: number): void => {
+        if (!this.isPlayable) return;
+
         // If you click on a flag, nothing happens
         if (this.flags[index]) return;
 
@@ -179,6 +181,8 @@ export class Mijnveger extends EventTarget {
      * @param index The index that is clicked on.
      */
     public rightClick = (index: number): void => {
+        if (!this.isPlayable) return;
+
         // If it is a discovered cell, do nothing
         if (this.discovered[index]) return;
 
@@ -285,11 +289,20 @@ export class Mijnveger extends EventTarget {
         // Check which flags are in the cells adjacent to this cell
         const neighboringFlags = neighboringIndices.filter((index) => this.flags[index]);
 
-        // If the number of neighboring flags equals the number of neighboring mines, reveal the cells without a flag
+        // If the number of neighboring flags equals the number of neighboring mines
         if (neighboringMines.length === neighboringFlags.length) {
-            neighboringIndices.forEach((index) => {
-                if (!this.flags[index]) this.revealCell(index);
-            });
+
+            // If all flags are placed correctly on the mines reveal all cells without a flag
+            if (neighboringFlags.every((value, index) => neighboringMines[index] === value)) {
+                neighboringIndices.forEach((index) => {
+                    if (!this.flags[index]) this.revealCell(index);
+                });
+                // If the flags are not correctly placed on the mines, reveal the mine one
+            } else {
+                neighboringIndices.forEach((index) => {
+                    if (this.mines[index]) this.revealCell(index);
+                });
+            }
         }
     }
 
@@ -380,7 +393,7 @@ export class Mijnveger extends EventTarget {
 
 
     /**
-     * Emits a gameover event and prevents further playing.
+     * Emits a gameover event, reveals all the mines and prevents further playing.
      * @param clickedElement The element which was clicked last.
      */
     private gameOver = (clickedElement: HTMLTableCellElement): void => {
@@ -419,8 +432,12 @@ export class Mijnveger extends EventTarget {
 
         // Add a flag to every mine
         this.mines.forEach((value, index) => {
-            if (value) this.cellElements[index].classList.add("flag")
+            if (value) {
+                this.flags[index] = true;
+                this.cellElements[index].classList.add("flag");
+            }
         });
+        this.updateNumberOfFlagsElement();
 
         const eventDetails: GameEndDetails = {
             elapsedTime: this.stopTime && this.startTime ? this.stopTime - this.startTime : -1,
