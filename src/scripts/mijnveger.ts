@@ -297,10 +297,10 @@ export class Mijnveger extends EventTarget {
                 neighboringIndices.forEach((index) => {
                     if (!this.flags[index]) this.revealCell(index);
                 });
-                // If the flags are not correctly placed on the mines, reveal the mine one
+                // If the flags are not correctly placed on the mines, reveal the mine one without a flag first, ending the game
             } else {
                 neighboringIndices.forEach((index) => {
-                    if (this.mines[index]) this.revealCell(index);
+                    if (this.mines[index] && !this.flags[index]) this.revealCell(index);
                 });
             }
         }
