@@ -5,6 +5,7 @@ import clownGif from "../media/funny/clown.gif";
 import bombSvg from "../media/bomb.svg";
 import { helicopter } from "./loseAnimations/helicopter";
 import { carCrash } from "./loseAnimations/carCrash";
+import { flashbang } from "./loseAnimations/flashbang";
 
 
 export async function loseAnimation(event: CustomEvent | Event): Promise<void> {
@@ -16,7 +17,8 @@ export async function loseAnimation(event: CustomEvent | Event): Promise<void> {
     // maak alvast de achtergrond want dit duurt even
     const background = createBackground(2);
 
-    const effects = [helicopter, carCrash];
+    // selecteer random effect om af te spelen
+    const effects = [helicopter, carCrash, flashbang];
     await randomItem(effects)(details.mineCells);
 
     // update de achtergrond

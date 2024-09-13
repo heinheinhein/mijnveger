@@ -6,8 +6,7 @@ import { sleep, showMines } from "../loseAnimation";
 
 export async function helicopter(mines: HTMLTableCellElement[]): Promise<void> {
     // helicopter audio
-    const heliAudio = new Audio(helicopterMp3);
-    await heliAudio.play();
+    mines
 
     await sleep(2300);
 
