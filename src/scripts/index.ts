@@ -37,7 +37,7 @@ function init(): void {
     mijnveger.addEventListener("reset", resetStyling);
     mijnveger.addEventListener("resize", resetStyling);
 
-    document.getElementById("opnieuw")?.addEventListener("click", (_event) => mijnveger.reset());
+    document.getElementById("opnieuw")?.addEventListener("click", (_event) => window.location.reload());
 
     // difficulty aanpassen
     const difficulties = {
