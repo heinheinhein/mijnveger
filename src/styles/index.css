@@ -58,6 +58,11 @@ footer label {
   background-color: var(--background-color);
 }
 
+/* als de mijveger table leeg is, krijgt ie geen border */
+#mijnveger:not(:has(*)) {
+  border: unset !important;
+}
+
 #mijnveger,
 #mijnveger td,
 #mijnveger th {
